@@ -1,0 +1,298 @@
+:root {
+  color-scheme: light;
+  font-family: "IBM Plex Sans", "Segoe UI", sans-serif;
+  line-height: 1.4;
+  font-weight: 400;
+  background:
+    radial-gradient(circle at top left, rgba(191, 113, 74, 0.18), transparent 24%),
+    linear-gradient(180deg, #efe4d2 0%, #e3d6c1 100%);
+  color: #15231f;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.app-shell {
+  min-height: 100vh;
+  padding: 32px;
+}
+
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.app-header h1 {
+  margin: 4px 0 0;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+}
+
+.eyebrow {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.72rem;
+  color: #7d6042;
+}
+
+.header-meta {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.header-meta span {
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: rgba(248, 244, 236, 0.8);
+  border: 1px solid rgba(21, 35, 31, 0.12);
+}
+
+.workspace-panel {
+  display: grid;
+  grid-template-columns: minmax(220px, 280px) minmax(0, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+
+.workspace-copy {
+  padding: 24px;
+  border-radius: 24px;
+  background: rgba(248, 244, 236, 0.72);
+  border: 1px solid rgba(21, 35, 31, 0.08);
+  box-shadow: 0 16px 44px rgba(65, 44, 20, 0.08);
+}
+
+.workspace-copy h2 {
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+
+.workspace-copy p {
+  margin: 0;
+  color: rgba(21, 35, 31, 0.76);
+}
+
+.workspace-board {
+  position: relative;
+  overflow: auto;
+  padding-right: 320px;
+}
+
+.borehole-canvas {
+  width: min(100%, 860px);
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 18px 36px rgba(52, 37, 21, 0.12));
+}
+
+.column-title {
+  font-size: 16px;
+  font-weight: 700;
+  fill: #315548;
+}
+
+.depth-label {
+  font-size: 13px;
+  font-weight: 600;
+  fill: rgba(21, 35, 31, 0.62);
+}
+
+.column-frame {
+  fill: rgba(255, 255, 255, 0.4);
+  stroke: rgba(21, 35, 31, 0.18);
+  stroke-width: 2;
+}
+
+.interactive-column {
+  cursor: crosshair;
+}
+
+.interval-card {
+  stroke-width: 2.4;
+  cursor: grab;
+}
+
+.interval-card:active {
+  cursor: grabbing;
+}
+
+.spt-card {
+  fill: rgba(178, 92, 43, 0.16);
+  stroke: rgba(178, 92, 43, 0.72);
+}
+
+.soil-card {
+  fill: rgba(60, 94, 80, 0.14);
+  stroke: rgba(60, 94, 80, 0.72);
+}
+
+.selected {
+  stroke: #0e5c53;
+  stroke-width: 3;
+}
+
+.interval-label,
+.interval-depth,
+.interval-value,
+.soil-text,
+.hover-depth {
+  fill: #15231f;
+}
+
+.interval-label {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.interval-value {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.interval-depth {
+  font-size: 12px;
+  fill: rgba(21, 35, 31, 0.68);
+}
+
+.soil-text {
+  font-size: 15px;
+}
+
+.preview-range {
+  fill: rgba(14, 92, 83, 0.12);
+  stroke: rgba(14, 92, 83, 0.72);
+  stroke-width: 2;
+  stroke-dasharray: 8 6;
+}
+
+.preview-line,
+.hover-line {
+  stroke: rgba(14, 92, 83, 0.52);
+  stroke-width: 2;
+  stroke-dasharray: 5 5;
+}
+
+.hover-line {
+  stroke: rgba(21, 35, 31, 0.24);
+  stroke-width: 1.5;
+}
+
+.hover-depth {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.handle {
+  fill: #0e5c53;
+  cursor: ns-resize;
+}
+
+.floating-editor {
+  position: absolute;
+  width: 260px;
+  padding: 16px;
+  border-radius: 18px;
+  background: rgba(248, 244, 236, 0.98);
+  border: 1px solid rgba(21, 35, 31, 0.12);
+  box-shadow: 0 18px 34px rgba(52, 37, 21, 0.12);
+}
+
+.editor-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.editor-header button {
+  border: 0;
+  border-radius: 999px;
+  padding: 8px 12px;
+  background: rgba(21, 35, 31, 0.08);
+  color: #15231f;
+  cursor: pointer;
+}
+
+.blow-inputs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.blow-inputs label {
+  display: grid;
+  gap: 6px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.blow-inputs input,
+.floating-editor textarea {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid rgba(21, 35, 31, 0.16);
+  padding: 10px 12px;
+  background: rgba(255, 255, 255, 0.78);
+}
+
+.floating-editor textarea {
+  resize: vertical;
+}
+
+@media (max-width: 1120px) {
+  .workspace-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .workspace-board {
+    padding-right: 0;
+    padding-bottom: 280px;
+  }
+
+  .floating-editor {
+    left: 24px !important;
+    top: auto !important;
+    bottom: 24px;
+  }
+}
+
+@media (max-width: 720px) {
+  .app-shell {
+    padding: 18px;
+  }
+
+  .app-header {
+    flex-direction: column;
+  }
+
+  .workspace-copy {
+    padding: 18px;
+  }
+}
